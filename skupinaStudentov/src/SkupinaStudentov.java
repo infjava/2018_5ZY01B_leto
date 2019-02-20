@@ -18,6 +18,8 @@ public class SkupinaStudentov {
         System.out.println("Hello world");
         System.out.println("Hello again");
         System.out.println("Bye bye");
+        
+        Student fero = new Student("222", "Frantisek", "Mrkvicka");
+        System.out.println(fero);
     }
-    
 }
