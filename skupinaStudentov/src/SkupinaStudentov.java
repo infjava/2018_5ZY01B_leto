@@ -25,5 +25,8 @@ public class SkupinaStudentov {
         Skupina sk5ZY01B = new Skupina("5ZY01B");
         sk5ZY01B.pridajStudenta(fero);
         sk5ZY01B.vypisStudentov();
+        
+        System.out.println(sk5ZY01B.getStudent("222"));
+        System.out.println(sk5ZY01B.getStudent("111"));
     }
 }
