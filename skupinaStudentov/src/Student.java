@@ -16,7 +16,11 @@ public class Student {
 
     public Student(String osobneCislo, String meno, String priezvisko) {
         this.osobneCislo = osobneCislo;
-        this.meno = meno;
+        if (meno != null) {
+            this.meno = Character.toUpperCase(meno.charAt(0)) + meno.substring(1).toLowerCase();
+        } else {
+            this.meno = null;
+        }
         this.priezvisko = priezvisko;
     }
 

@@ -43,6 +43,13 @@ public class StudentTest {
         String meno = jozo.getMeno();
         Assert.assertEquals("Jozef", meno);
     }
+    
+    @Test
+    public void menoJeNull() {
+        Student jozo = new Student("8", null, "Mrkvicka");
+        String meno = jozo.getMeno();
+        Assert.assertNull(meno);
+    }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
