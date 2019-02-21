@@ -28,7 +28,7 @@ public class SkupinaTest {
     public void pridavanieStudenta() {
         this.skupina.pridajStudenta(this.jozo);
         Student pridany = this.skupina.getStudent(this.jozo.getOsobneCislo());
-        Assert.assertNotNull(pridany);
+        Assert.assertSame(this.jozo, pridany);
     }
     
     @Test
