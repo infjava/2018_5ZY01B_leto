@@ -17,11 +17,13 @@ public class SkupinaTest {
 
     private Skupina skupina;
     private Student jozo;
+    private Student fero;
     
     @Before
     public void setUp() {
         this.skupina = new Skupina("5ZY01B");
         this.jozo = new Student("1", "Jozef", "Mrkva");
+        this.fero = new Student("2", "Ferdinant", "Mrkva");
     }
     
     @Test
@@ -35,5 +37,17 @@ public class SkupinaTest {
     public void neexistujuciNeexistuje() {
         Student pridany = this.skupina.getStudent("123");
         Assert.assertNull(pridany);
+    }
+    
+    @Test
+    public void nedaSaPridatStudentaDvaKrat() {
+        Assert.assertTrue(this.skupina.pridajStudenta(this.jozo));
+        Assert.assertFalse(this.skupina.pridajStudenta(this.jozo));
+    }
+    
+    @Test
+    public void daSaPridatDvochStudentov() {
+        Assert.assertTrue(this.skupina.pridajStudenta(this.jozo));
+        Assert.assertTrue(this.skupina.pridajStudenta(this.fero));
     }
 }
