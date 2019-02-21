@@ -26,7 +26,7 @@ public class Skupina {
     }
 
     void pridajStudenta(Student student) {
-        this.zoznamStudentov.add(student);
+        //this.zoznamStudentov.add(student);
     }
 
     void vypisStudentov() {
@@ -43,6 +43,6 @@ public class Skupina {
             }
         }
         
-        return null;
+        return new Student(null, null, null);
     }
 }
