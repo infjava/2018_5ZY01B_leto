@@ -20,7 +20,8 @@
  
 public class Hra  {
     private Parser parser;
-    private Miestnost aktualnaMiestnost;
+    private final Hrac hrac;
+    private Miestnost startovaciaMiestnost;
     
     /**
      * Vytvori a inicializuje hru.
@@ -28,6 +29,7 @@ public class Hra  {
     public Hra() {
         this.vytvorMiestnosti();
         this.parser = new Parser();
+        this.hrac = new Hrac(this.startovaciaMiestnost);
     }
 
     /**
@@ -77,7 +79,7 @@ public class Hra  {
         
         chodbaRB.nastavVychod("sever", vratnica);
 
-        this.aktualnaMiestnost = jedalen;  // startovacia miestnost hry
+        this.startovaciaMiestnost = jedalen;
     }
 
     /**
@@ -110,7 +112,7 @@ public class Hra  {
         System.out.println("World of FRI je nova, neuveritelne nudna adventura.");
         System.out.println("Zadaj 'pomoc' ak potrebujes pomoc.");
         System.out.println();
-        this.aktualnaMiestnost.vypisInfoOMiestnosti();
+        this.hrac.getAktualnaMiestnost().vypisInfoOMiestnosti();
     }
 
 
@@ -171,15 +173,7 @@ public class Hra  {
 
         String smer = prikaz.getParameter();
 
-        // Pokus o opustenie aktualnej miestnosti danym vychodom.
-        Miestnost novaMiestnost = this.aktualnaMiestnost.getVychod(smer);
-
-        if (novaMiestnost == null) {
-            System.out.println("Tam nie je vychod!");
-        } else {
-            this.aktualnaMiestnost = novaMiestnost;
-            novaMiestnost.vypisInfoOMiestnosti();
-        }
+        this.hrac.chodSmerom(smer);
     }
 
     /** 
